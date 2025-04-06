@@ -49,7 +49,7 @@ int main() {
     c.connectByName("HID Global OMNIKEY 5422 Smartcard Reader 01");  // CL
      //c.connectByName("HID Global OMNIKEY 5422 Smartcard Reader");  // CT
 
-     SampleSettings s;
+    SampleSettings s;
     SelectionCallback selectionCallback = select;
     PinEntryCallback pinEntryCallback = pin;
     OnlineRequestCallback onlineRequestCallback = online;

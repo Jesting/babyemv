@@ -1,7 +1,21 @@
 # Baby EMV
-## _by Payments101_
+## _for Payments101_
 
-Baby EMV is example app illustrating the full EMV contact flow. (Except SDA)
+Baby EMV is example app illustrating the EMV contact flow.
+* Some parts are simplified / absent:
+    * Some CVM's 
+    * Risk management 
+    * SDA 
+    * Script processing
+    * Tests
+* Code supports:
+    * Application selection (direct & PSE)
+    * GPO
+    * CVM: Offline PIN (plain & encrypted), etc..
+    * Basic restrictions processing
+    * Certificates recovery
+    * DDA & CDA
+    * Cryptogram generation
 
 ## To use the app you need:
 - [CLANG] Clang compiler
