@@ -64,6 +64,9 @@ class Restrictions : public Operation {
 
     bool isAllowedForATMorTerminal(uint8_t terminalType, shared_ptr<AUC> auc) {
         auto additionalTerminalCapabilities = transactionObjects.get<AdditionalTerminalCapabilities>(0x9F40);
+
+        additionalTerminalCapabilities->toStream(cout);
+
         bool isAtm = (terminalType >= 0x14 && terminalType <= 0x16) && additionalTerminalCapabilities->cash;
 
         if (isAtm) {

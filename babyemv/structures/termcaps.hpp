@@ -160,7 +160,7 @@ class AdditionalTerminalCapabilities : TransactionObject {
     }
 
     void toStream(ostream& ss) {
-        toStreamUniversal(ss, "Additionakl terminal capabilities", additionalTerminalCapabilities, value);
+        toStreamUniversal(ss, "Additional terminal capabilities", additionalTerminalCapabilities, value);
     }
 };
 

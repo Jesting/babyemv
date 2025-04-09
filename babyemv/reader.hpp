@@ -76,7 +76,7 @@ class ScardApiReader : public Reader {
     }
 
     int command(unsigned char* data, int len, unsigned char* responseData, unsigned int& responseLen) override {
-        cout << endl << "Card exhange:" << endl;
+        cout << endl << "Card exchange:" << endl;
         cout << "CAPDU: ";
         pointerPrint(data, len);
 
