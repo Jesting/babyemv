@@ -50,16 +50,13 @@ class CVMList : TransactionObject {
 
     CVMList(vector<uint8_t>& _value) : TransactionObject(_value) {
         int c = 0;
-
-        unsigned int x = 0;
-        unsigned int y = 0;
-
+        
         while (c < 4) {
-            x = x << 8 | value[c++];
+            X = X << 8 | value[c++];
         }
-
+        
         while (c < 8) {
-            y = y << 8 | value[c++];
+            Y = Y << 8 | value[c++];
         }
 
         while (c < value.size()) {
