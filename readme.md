@@ -23,7 +23,7 @@ Baby EMV is example app illustrating the EMV contact flow.
 - [PCSC] PCSC lite project
 
 ## Compile & Run
-Only MAC OS with all compnents is currently supported
+Only Mac OS with all compnents is currently supported. However with all components installed the code will compile and run on every system (make file must be updated accordingly).
 ```sh
 make clean
 make 
