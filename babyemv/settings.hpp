@@ -41,7 +41,7 @@ class SampleSettings : public Setttings {
         { 0x9F09, { 0x00, 0x02 } },  // AVN
         { 0x9F35, { 0x22 } },        // Terminal type
         { 0x9F1A, { 0x09, 0x81 } },  // Terminal country code
-        //{ 0x9F33, { 0x20, 0xe8, 0xc8 } },// terminal capabilities
+        //{ 0x9F33, { 0x20, 0x10, 0xc8 } },// terminal capabilities
         { 0x9F33, { 0x20, 0x00, 0xc8 } },              // terminal capabilities
         { 0x9F40, { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF } },  // additional terminal capabilities
 
