@@ -14,14 +14,14 @@ template <typename Container>
 string bytesAsHexString(const Container& container) {
     std::stringstream result;
     for (const auto& v : container) {
-        result << std::setfill('0') << std::setw(sizeof(v) * 2) << std::hex << +v;
+        result << setfill('0') << setw(sizeof(v) * 2) << hex << +v;
     }
     return result.str();
 }
 
 void pointerPrint(unsigned char* data, int len) {
     for (int i = 0; i < len; i++) {
-        cout << std::uppercase << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(data[i]);
+        cout << uppercase << setfill('0') << right << setw(2) << hex << static_cast<int>(data[i]);
     }
     cout << endl;
 }
