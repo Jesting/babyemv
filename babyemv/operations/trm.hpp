@@ -23,6 +23,8 @@ class TRM : public Operation {
         auto floorLimitL = bcdToLong(*floorLimit);
 
         if(amountL<floorLimitL) throw runtime_error("Offline currently not supported");
+            else
+        transactionObjects.get<TVR>(0x95)->setTransactionExceedsFloorLimit();
     }
 
     ExecutionResult execute() override{

@@ -72,17 +72,17 @@ class AC1 : public Operation {
         return AC::AAC;
     }
 
-    AC ac1() {
+    AC ac1(bool remake = false) {
         auto tvr = transactionObjects.get<TVR>(0x95);
-        tvr->setOnlinePINEntered();
-        tvr->setTransactionExceedsFloorLimit();
 
         auto ac = riskManagement();
-
+        
         crypto.genUN();
+        if(remake) {
+            ac = AC::AAC;
+        }
 
         auto cdol1 = transactionObjects.get<DOL>(0x8C);
-
         crypto.calculateTCHash();
 
         vector<unsigned char> response;
@@ -93,10 +93,14 @@ class AC1 : public Operation {
         cout << tlvPrint(tlv) << endl;
 
         AC acResult = static_cast<AC>(transactionObjects.get(0x9F27)->at(0));
-
+        
         if (acResult != AC::AAC) {
             if (oda.cdaRequired) {
-                oda.makeCDA(tlv, 1);
+                bool cdaFailed = oda.makeCDA(tlv, 1);
+
+                //if(cdaFailed){
+                //    acResult = ac1(true);
+                //}
             }
         }
 

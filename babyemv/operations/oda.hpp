@@ -203,7 +203,7 @@ class Oda : public Operation {
     }
     bool cdaRequired = false;
 
-    void makeCDA(TLV& responseTags, int acNo) {
+    bool makeCDA(TLV& responseTags, int acNo) {
         auto tvr = transactionObjects.get<TVR>(0x95);
         auto tsi = transactionObjects.get<TSI>(0x9B);
 
@@ -211,7 +211,7 @@ class Oda : public Operation {
         auto sdad = transactionObjects.get(0x9F4B);
         if (!sdad){
             tvr->setCdaFailed();
-            return;
+            return false;
         }
 
         bool cdaFailed = false;
@@ -281,12 +281,15 @@ class Oda : public Operation {
             if (!cdaFailed)
                 transactionObjects.put(0x9f4c, iddCda.idn);
         }
-
+        
         if (cdaFailed) {
             tvr->setCdaFailed();
+            cdaRequired = false;
         } else {
             tsi->setOfflinevalueAuthenticationWasPerformed();
         }
+
+        return cdaFailed;
     }
 
     ExecutionResult execute() override{
