@@ -72,16 +72,13 @@ class AC1 : public Operation {
         return AC::AAC;
     }
 
-    AC ac1(bool remake = false) {
+    AC ac1(bool& cdaFailed) {
         auto tvr = transactionObjects.get<TVR>(0x95);
 
         auto ac = riskManagement();
         
         crypto.genUN();
-        if(remake) {
-            ac = AC::AAC;
-        }
-
+        
         auto cdol1 = transactionObjects.get<DOL>(0x8C);
         crypto.calculateTCHash();
 
@@ -96,14 +93,10 @@ class AC1 : public Operation {
         
         if (acResult != AC::AAC) {
             if (oda.cdaRequired) {
-                bool cdaFailed = oda.makeCDA(tlv, 1);
-
-                //if(cdaFailed){
-                //    acResult = ac1(true);
-                //}
+                cdaFailed = oda.makeCDA(tlv, 1);
             }
         }
-
+        
         return acResult;
     }
 
@@ -112,7 +105,8 @@ class AC1 : public Operation {
         cout << "[APPLICATION CRYPTOGRAM 1]" << endl;
         cout << "**************************" << endl;
         try {
-            AC ac = ac1();
+            bool cdaFailed;
+            AC ac = ac1(cdaFailed);
             if (ac == AC::AAC) {
                 return ExecutionResult::Denied;
             }
@@ -120,7 +114,11 @@ class AC1 : public Operation {
                 return ExecutionResult::Approved;
             }
             if (ac == AC::ARQC) {
-                return ExecutionResult::Online;
+                if(cdaFailed){ 
+                    return ExecutionResult::OnlineButCdaFailed;
+                } else{
+                    return ExecutionResult::Online;
+                }
             }
         } catch (const char* e) {
             cout << "AC1 error:" << e << endl;

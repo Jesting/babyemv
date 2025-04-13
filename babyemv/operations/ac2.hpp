@@ -37,7 +37,7 @@ class AC2 : public Operation {
         auto tag8A = transactionObjects.get(0x8A);
         
         AC ac = AC::AAC;
-        if(tag8A->at(0) == 0x30 &&  tag8A->at(1) == 0x30){
+        if(tag8A && (tag8A->at(0) == 0x30 &&  tag8A->at(1) == 0x30)){
             ac = AC::TC;
         }
 

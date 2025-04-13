@@ -100,6 +100,12 @@ class Kernel {
                     online(to);
                     break;
                 }
+                
+                case ExecutionResult::OnlineButCdaFailed: {
+                    cout << "Online but CDA failed" << endl;
+                    break;
+                }
+
                 case ExecutionResult::Terminate: {
                     cout << "Terminate" << endl;
                     return false;

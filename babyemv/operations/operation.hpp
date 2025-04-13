@@ -4,7 +4,7 @@
 #include "../command.hpp"
 #include <ostream>
 
-enum class ExecutionResult { Success, Terminate, Denied, Online, Approved };
+enum class ExecutionResult { Success, Terminate, Denied, Online, Approved, OnlineButCdaFailed };
 
 class Operation {
   protected:
