@@ -3,6 +3,8 @@
 #include "operation.hpp"
 #include "../settings.hpp"
 
+using namespace std;
+
 class Selection : public Operation {
   private:
     Setttings& settings;

@@ -19,7 +19,7 @@ Baby EMV is example app illustrating the EMV contact flow.
 
 ## To use the app you need:
 - [CLANG] Clang compiler
-- [OPENSSL] Open SSL heraders 
+- [BOOST] Open SSL heraders 
 - [PCSC] PCSC lite project
 
 ## Compile & Run
@@ -42,6 +42,6 @@ Your reader may have different name , you need to choose it accordingly
 
 [//]: #
    [PCSC]:<https://pcsclite.apdu.fr>
-   [OPENSSL]: <https://openssl.org>
+   [BOOST]: <https://www.boost.org>
    [CLANG]: <https://clang.llvm.org>
  

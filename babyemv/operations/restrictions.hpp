@@ -8,6 +8,7 @@
 #include "../structures/termcaps.hpp"
 #include "../structures/enums.hpp"
 #include <format>
+#include <algorithm>
 
 class Restrictions : public Operation {
   public:

@@ -1,7 +1,7 @@
 CXX = clang++
 CXXFLAGS = -std=gnu++14 -std=c++20
-INCLUDES = -I/opt/homebrew/opt/openssl/include
-LDFLAGS = -framework PCSC -L/opt/homebrew/opt/openssl/lib -lssl -lcrypto
+INCLUDES = -I/opt/homebrew/opt/openssl/include -I/opt/homebrew/Cellar/boost/1.89.0/include/
+LDFLAGS = -framework PCSC
 
 TARGET = x
 SRCDIR = .

@@ -1,9 +1,10 @@
 #include "babyemv/kernel.hpp"
 #include "babyemv/reader.hpp"
+#include <algorithm>
 
 using namespace std;
 
-int select(vector<string>& apps) {
+int selectCallbackHandler(vector<string>& apps) {
     for_each(apps.begin(), apps.end(), [](const string& x) { cout << x << endl; });
     cout << "Select app:" << endl;
     int no = 0;
@@ -46,11 +47,11 @@ void online(const unordered_map<uint32_t, vector<uint8_t>>& t, vector<pair<uint8
 int main() {
     auto c = ScardApiReader();
     c.listReaders();
-    c.connectByName("HID Global OMNIKEY 5422 Smartcard Reader 01");  // CL
-    //c.connectByName("HID Global OMNIKEY 5422 Smartcard Reader");  // CT
+    //c.connectByName("HID Global OMNIKEY 5422 Smartcard Reader 01");  // CL
+    c.connectByName("HID Global OMNIKEY 5422 Smartcard Reader");  // CT
 
     SampleSettings s;
-    SelectionCallback selectionCallback = select;
+    SelectionCallback selectionCallback = selectCallbackHandler;
     PinEntryCallback pinEntryCallback = pin;
     OnlineRequestCallback onlineRequestCallback = online;
 

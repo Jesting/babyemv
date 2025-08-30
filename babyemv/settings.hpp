@@ -41,6 +41,7 @@ class SampleSettings : public Setttings {
         { 0x9F09, { 0x00, 0x02 } },  // AVN
         { 0x9F35, { 0x22 } },        // Terminal type
         { 0x9F1A, { 0x09, 0x81 } },  // Terminal country code
+        //{ 0x9F33, { 0x20, 0x10, 0xc8 } },// terminal capabilities with offline enc pin
         //{ 0x9F33, { 0x20, 0x80, 0xc8 } },// terminal capabilities with offline plain pin
         { 0x9F33, { 0x20, 0x00, 0xc8 } },              // terminal capabilities no cvms 
         { 0x9F40, { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF } },  // additional terminal capabilities

@@ -3,6 +3,8 @@
 #include "../kernel.hpp"
 #include "../command.hpp"
 #include <ostream>
+#include <algorithm>
+#include <functional>
 
 enum class ExecutionResult { Success, Terminate, Denied, Online, Approved, OnlineButCdaFailed };
 
