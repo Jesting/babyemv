@@ -67,6 +67,7 @@ class ScardApiReader : public Reader {
     int connectByName(const std::string& readerName) {
         rc = SCardConnect(hContext, readerName.c_str(), SCARD_SHARE_SHARED, SCARD_PROTOCOL_T0 | SCARD_PROTOCOL_T1,
                           &hCard, &dwActiveProtocol);
+
         if (rc != SCARD_S_SUCCESS) {
             std::cerr << "Failed to connect to card reader: " << pcsc_stringify_error(rc) << std::endl;
             SCardReleaseContext(hContext);
